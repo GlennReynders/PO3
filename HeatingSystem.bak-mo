@@ -1,0 +1,5 @@
+within PO3_basics;
+model HeatingSystem
+  extends IDEAS.HeatingSystems.IdealRadiatorHeating;
+
+end HeatingSystem;

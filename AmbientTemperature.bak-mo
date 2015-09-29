@@ -1,0 +1,13 @@
+within PO3_basics;
+model AmbientTemperature "Connector for ambient temperature"
+
+  Modelica.Blocks.Interfaces.RealOutput Te annotation (Placement(transformation(
+          extent={{90,-8},{110,12}}), iconTransformation(extent={{90,-8},{110,
+            12}})));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
+            -100},{100,100}})), Icon(coordinateSystem(preserveAspectRatio=false,
+          extent={{-100,-100},{100,100}}), graphics={Text(
+          extent={{66,-60},{-72,72}},
+          lineColor={28,108,200},
+          textString="Te [K]")}));
+end AmbientTemperature;

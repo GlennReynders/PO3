@@ -1,0 +1,32 @@
+within PO3_basics;
+model VentilationSystem
+  "Ideal ventilation with controlled supply temperature and massflow rate"
+  extends IDEAS.Interfaces.BaseClasses.VentilationSystem(nLoads=0);
+
+  Modelica.Blocks.Interfaces.RealInput[nZones] m_flow_Set annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={-116,-100})));
+  IDEAS.Fluid.Sources.MassFlowSource_T
+                                 sou[nZones](
+    each use_m_flow_in=true,
+    each final nPorts=1,
+    redeclare each package Medium = Medium,
+    each use_T_in=true) "Source"
+    annotation (Placement(transformation(extent={{-142,22},{-162,42}})));
+  IDEAS.Fluid.Sources.FixedBoundary
+                              sink[nZones](
+                         each final nPorts=1, redeclare each package Medium = Medium)
+    annotation (Placement(transformation(extent={{-142,-18},{-162,2}})));
+  Modelica.Blocks.Interfaces.RealInput[nZones] Tsup annotation (Placement(
+        transformation(
+        extent={{-20,-20},{20,20}},
+        rotation=90,
+        origin={-38,-104})));
+equation
+  connect(sou[1].m_flow_in, m_flow_Set) annotation (Line(points={{-142,40},{-120,
+          40},{-82,40},{-82,-100},{-116,-100}}, color={0,0,127}));
+  annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-200,
+            -100},{200,100}})));
+end VentilationSystem;
