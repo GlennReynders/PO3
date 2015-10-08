@@ -1,8 +1,8 @@
-within PO3_basics.Data.Constructions;
+within PO3.Data.Constructions;
 record CavityWall
   "Example - Classic cavity wall construction with fully-filled cavity"
 
-  extends PO3_basics.Data.Interfaces.Construction(
+  extends PO3.Data.Interfaces.Construction(
     nLay=4,
     locGain=2,
     final mats={Materials.BrickMe(d=0.08),insulationType,Materials.BrickMi(d=

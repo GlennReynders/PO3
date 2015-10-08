@@ -1,11 +1,11 @@
-within PO3_basics.Data.Interfaces;
+within PO3.Data.Interfaces;
 record Glazing
 
   extends Modelica.Icons.MaterialProperty;
 
   parameter Integer nLay(min=1)
     "Number of layers of the glazing, including gaps";
-  parameter PO3_basics.Data.Interfaces.Material[nLay] mats "Array of materials";
+  parameter PO3.Data.Interfaces.Material[nLay] mats "Array of materials";
   parameter Real[:, nLay + 1] SwAbs
     "Absorbed solar radiation for each layer as function of angle of incidence";
   parameter Real[:, 2] SwTrans

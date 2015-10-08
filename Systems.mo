@@ -1,4 +1,4 @@
-within PO3_basics;
+within PO3;
 package Systems
 
   model HeatingSystem

@@ -1,5 +1,5 @@
-within PO3_basics.Data.Materials;
-record Screed = PO3_basics.Data.Interfaces.Material (
+within PO3.Data.Materials;
+record Screed = PO3.Data.Interfaces.Material (
     k=0.6,
     c=840,
     rho=1100,

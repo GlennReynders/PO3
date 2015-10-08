@@ -1,4 +1,4 @@
-within PO3_basics;
+within PO3;
 model AmbientTemperature "Connector for ambient temperature"
 
   Modelica.Blocks.Interfaces.RealOutput Te annotation (Placement(transformation(

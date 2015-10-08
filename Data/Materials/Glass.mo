@@ -1,5 +1,5 @@
-within PO3_basics.Data.Materials;
-record Glass = PO3_basics.Data.Interfaces.Material (
+within PO3.Data.Materials;
+record Glass = PO3.Data.Interfaces.Material (
     k=0.96,
     c=750,
     rho=2500,

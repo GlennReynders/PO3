@@ -1,5 +1,5 @@
-within PO3_basics.Data.Materials;
-record BrickHi = PO3_basics.Data.Interfaces.Material (
+within PO3.Data.Materials;
+record BrickHi = PO3.Data.Interfaces.Material (
     k=0.90,
     c=840,
     rho=1850,

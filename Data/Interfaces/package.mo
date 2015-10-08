@@ -1,7 +1,11 @@
-within PO3_basics.Data;
+within PO3.Data;
 package Interfaces "Building data interfaces"
 
 
 extends Modelica.Icons.InterfacesPackage;
+
+
+
+
 
 end Interfaces;

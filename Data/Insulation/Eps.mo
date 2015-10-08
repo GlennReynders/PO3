@@ -1,5 +1,5 @@
-within PO3_basics.Data.Insulation;
-record Eps = PO3_basics.Data.Interfaces.Insulation (
+within PO3.Data.Insulation;
+record Eps = PO3.Data.Interfaces.Insulation (
     k=0.036,
     c=1470,
     rho=26,

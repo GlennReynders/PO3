@@ -1,4 +1,4 @@
-within PO3_basics;
+within PO3;
 package Utilities
 
   model AmbientTemperature "Connector for ambient temperature"

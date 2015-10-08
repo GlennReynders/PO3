@@ -1,5 +1,5 @@
-within PO3_basics.Data.Materials;
-record Ground = PO3_basics.Data.Interfaces.Material (
+within PO3.Data.Materials;
+record Ground = PO3.Data.Interfaces.Material (
     final k=2.0,
     final c=1250,
     final rho=1600,

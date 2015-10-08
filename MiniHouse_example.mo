@@ -1,4 +1,4 @@
-within PO3_basics;
+within PO3;
 model MiniHouse_example "Basemodel for mini passivehouse"
 
   inner IDEAS.SimInfoManager sim

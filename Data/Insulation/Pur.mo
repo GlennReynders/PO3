@@ -1,5 +1,5 @@
-within PO3_basics.Data.Insulation;
-record Pur = PO3_basics.Data.Interfaces.Insulation (
+within PO3.Data.Insulation;
+record Pur = PO3.Data.Interfaces.Insulation (
     k=0.020,
     c=1470,
     rho=30,

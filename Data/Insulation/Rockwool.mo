@@ -1,5 +1,5 @@
-within PO3_basics.Data.Insulation;
-record Rockwool = PO3_basics.Data.Interfaces.Insulation (
+within PO3.Data.Insulation;
+record Rockwool = PO3.Data.Interfaces.Insulation (
     final k=0.036,
     final c=840,
     final rho=110,

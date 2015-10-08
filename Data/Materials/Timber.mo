@@ -1,5 +1,5 @@
-within PO3_basics.Data.Materials;
-record Timber = PO3_basics.Data.Interfaces.Material (
+within PO3.Data.Materials;
+record Timber = PO3.Data.Interfaces.Material (
     k=0.11,
     c=1880,
     rho=550,

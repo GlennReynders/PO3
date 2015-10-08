@@ -1,5 +1,5 @@
-within PO3_basics.Data.Insulation;
-record none = PO3_basics.Data.Interfaces.Insulation (
+within PO3.Data.Insulation;
+record none = PO3.Data.Interfaces.Insulation (
     k=1000,
     c=1008,
     rho=1.23,

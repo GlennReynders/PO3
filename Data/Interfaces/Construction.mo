@@ -1,4 +1,4 @@
-within PO3_basics.Data.Interfaces;
+within PO3.Data.Interfaces;
 record Construction "Layers from outer to inner"
 
   extends Modelica.Icons.MaterialProperty;
@@ -6,10 +6,10 @@ record Construction "Layers from outer to inner"
   parameter Integer nLay(min=1)
     "Number of layers of the construction, including gaps";
   parameter Integer locGain(min=1) = 1 "Location of possible embedded system";
-  replaceable parameter PO3_basics.Data.Interfaces.Insulation insulationType(final d=
-        insulationTickness) constrainedby PO3_basics.Data.Interfaces.Insulation
+  replaceable parameter PO3.Data.Interfaces.Insulation insulationType(final d=
+        insulationTickness) constrainedby PO3.Data.Interfaces.Insulation
     "Type of thermal insulation";
-  parameter PO3_basics.Data.Interfaces.Material[nLay] mats "Array of materials";
+  parameter PO3.Data.Interfaces.Material[nLay] mats "Array of materials";
   parameter Modelica.SIunits.Length insulationTickness=0
     "Thermal insulation thickness";
 

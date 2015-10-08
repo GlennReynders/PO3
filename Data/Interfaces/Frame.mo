@@ -1,4 +1,4 @@
-within PO3_basics.Data.Interfaces;
+within PO3.Data.Interfaces;
 record Frame "Window frame"
 
   extends Modelica.Icons.MaterialProperty;

@@ -1,4 +1,4 @@
-within PO3_basics;
+within PO3;
 model VentilationSystem
   "Ideal ventilation with controlled supply temperature and massflow rate"
   extends IDEAS.Interfaces.BaseClasses.VentilationSystem(nLoads=0);
