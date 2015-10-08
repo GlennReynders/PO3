@@ -1,5 +1,5 @@
 within PO3.Data.Insulation;
-record Ytong = PO3.Data.Interfaces.Insulation (
+record Ytong = IDEAS.Buildings.Data.Interfaces.Insulation (
     k=0.120,
     c=1000,
     rho=450,

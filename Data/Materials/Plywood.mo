@@ -1,5 +1,5 @@
 within PO3.Data.Materials;
-record Plywood = PO3.Data.Interfaces.Material (
+record Plywood = IDEAS.Buildings.Data.Interfaces.Material (
     k=0.9,
     c=840,
     rho=1950,

@@ -1,5 +1,5 @@
 within PO3.Data.Materials;
-record Argon = PO3.Data.Interfaces.Material (
+record Argon = IDEAS.Buildings.Data.Interfaces.Material (
     k=0.0162,
     c=519,
     rho=1.70,

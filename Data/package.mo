@@ -8,5 +8,4 @@ extends Modelica.Icons.MaterialPropertiesPackage;
 
 
 
-
 end Data;

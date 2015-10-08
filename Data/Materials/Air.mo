@@ -1,5 +1,5 @@
 within PO3.Data.Materials;
-record Air = PO3.Data.Interfaces.Material (
+record Air = IDEAS.Buildings.Data.Interfaces.Material (
     k=0.0241,
     c=1008,
     rho=1.23,

@@ -13,11 +13,11 @@ model MiniHouse_example "Basemodel for mini passivehouse"
     annotation (Placement(transformation(extent={{38,-72},{58,-52}})));
   IDEAS.Buildings.Components.OuterWall roof(
     insulationThickness=0.1,
-    redeclare IDEAS.Buildings.Data.Constructions.CavityWall constructionType,
     redeclare IDEAS.Buildings.Data.Insulation.Rockwool insulationType,
     AWall=5,
     inc=1.5707963267949,
-    azi=1.5707963267949)
+    azi=1.5707963267949,
+    redeclare IDEAS.Buildings.Data.Constructions.WallNew constructionType)
     annotation (Placement(transformation(extent={{-94,22},{-84,42}})));
   Systems.VentilationSystem none(
     nZones=1,

@@ -1,5 +1,5 @@
 within PO3.Data.Materials;
-record Krypton = PO3.Data.Interfaces.Material (
+record Krypton = IDEAS.Buildings.Data.Interfaces.Material (
     k=0.0086,
     c=245,
     rho=3.56,

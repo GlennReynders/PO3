@@ -1,5 +1,5 @@
 within PO3.Data.Insulation;
-record Xps = PO3.Data.Interfaces.Insulation (
+record Xps = IDEAS.Buildings.Data.Interfaces.Insulation (
     k=0.024,
     c=1470,
     rho=40,

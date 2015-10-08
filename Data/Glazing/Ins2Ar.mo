@@ -1,5 +1,5 @@
 within PO3.Data.Glazing;
-record Ins2Ar = PO3.Data.Interfaces.Glazing (
+record Ins2Ar = IDEAS.Buildings.Data.Interfaces.Glazing (
     final nLay=3,
     final mats={Materials.Glass(d=0.004, epsLw_b=0.04),Materials.Argon(d=0.015),
         Materials.Glass(d=0.004)},
