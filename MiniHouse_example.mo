@@ -4,33 +4,40 @@ model MiniHouse_example "Basemodel for mini passivehouse"
   inner IDEAS.SimInfoManager sim
     annotation (Placement(transformation(extent={{-100,78},{-80,98}})));
   IDEAS.Buildings.Components.Zone zone(
-    redeclare package Medium = Modelica.Media.Air.SimpleAir,
     V=1,
-    nSurf=3) annotation (Placement(transformation(extent={{-38,-42},{8,4}})));
-  Systems.HeatingSystem heatingSystem(nZones=1, QNom={25})
+    nSurf=3,
+    redeclare package Medium = IDEAS.Media.Specialized.Air.PerfectGas)
+             annotation (Placement(transformation(extent={{-38,-42},{8,4}})));
+  Systems.ElectricRadiatior
+                        heatingSystem(nZones=1,
+    nLoads=0,
+    InInterface=true,
+    Q_design={150},
+    t=1,
+    QNom={500},
+    onOffController)
     annotation (Placement(transformation(extent={{48,-12},{88,8}})));
-  Modelica.Blocks.Sources.Constant TSet(k=273.15 + 22)
-    annotation (Placement(transformation(extent={{38,-72},{58,-52}})));
   IDEAS.Buildings.Components.OuterWall roof(
     insulationThickness=0.1,
-    redeclare IDEAS.Buildings.Data.Insulation.Rockwool insulationType,
-    AWall=5,
+    redeclare PO3.Data.Constructions.CavityWall constructionType,
+    redeclare IDEAS.Buildings.Data.Insulation.Pir insulationType,
     inc=1.5707963267949,
     azi=1.5707963267949,
-    redeclare IDEAS.Buildings.Data.Constructions.WallNew constructionType)
+    AWall=0.9)
     annotation (Placement(transformation(extent={{-94,22},{-84,42}})));
   Systems.VentilationSystem none(
     nZones=1,
     VZones={zone.V},
-    redeclare package Medium = Modelica.Media.Air.SimpleAir,
-    nLoads=0) annotation (Placement(transformation(extent={{30,64},{70,84}})));
+    nLoads=0,
+    redeclare package Medium = IDEAS.Media.Specialized.Air.PerfectGas)
+              annotation (Placement(transformation(extent={{30,64},{70,84}})));
   IDEAS.Buildings.Components.OuterWall wall(
     insulationThickness=0.1,
-    redeclare IDEAS.Buildings.Data.Constructions.CavityWall constructionType,
-    redeclare IDEAS.Buildings.Data.Insulation.Rockwool insulationType,
-    AWall=5,
+    redeclare PO3.Data.Constructions.CavityWall constructionType,
+    redeclare IDEAS.Buildings.Data.Insulation.Pir insulationType,
     inc=1.5707963267949,
-    azi=1.5707963267949)
+    azi=1.5707963267949,
+    AWall=2.5)
     annotation (Placement(transformation(extent={{-94,-10},{-84,10}})));
   IDEAS.Buildings.Components.Window window(
     inc=1.5707963267949,
@@ -42,8 +49,15 @@ model MiniHouse_example "Basemodel for mini passivehouse"
     annotation (Placement(transformation(extent={{-92,-44},{-82,-24}})));
   Utilities.AmbientTemperature ambientTemperature
     annotation (Placement(transformation(extent={{20,16},{40,32}})));
-  Modelica.Blocks.Sources.Constant m_flow_set(k=1) "kg/s"
+  Modelica.Blocks.Sources.Constant m_flow_set(k=2.5e-5) "kg/s"
     annotation (Placement(transformation(extent={{4,36},{24,56}})));
+  Modelica.Blocks.Sources.Pulse pulse(
+    amplitude=9,
+    width=60,
+    period=24*3600,
+    offset=273.15 + 12,
+    startTime=7*3600)
+    annotation (Placement(transformation(extent={{0,-78},{20,-58}})));
 equation
   connect(zone.TSensor, heatingSystem.TSensor[1]) annotation (Line(points={{9.38,
           -19},{9.38,-18},{44,-18},{44,-8},{47.6,-8}}, color={0,0,127}));
@@ -51,8 +65,6 @@ equation
           48,0},{40,0},{28,0},{28,-25.9},{8,-25.9}}, color={191,0,0}));
   connect(zone.gainRad, heatingSystem.heatPortRad[1]) annotation (Line(points={{
           8,-32.8},{16,-32.8},{36,-32.8},{36,-4},{48,-4}}, color={191,0,0}));
-  connect(TSet.y, heatingSystem.TSet[1])
-    annotation (Line(points={{59,-62},{68,-62},{68,-12.2}}, color={0,0,127}));
   connect(zone.TSensor, heatingSystem.mDHW60C) annotation (Line(points={{9.38,-19},
           {46,-19},{46,-34},{74,-34},{74,-12.2}}, color={0,0,127}));
   connect(roof.propsBus_a, zone.propsBus[1]) annotation (Line(
@@ -77,6 +89,8 @@ equation
           {46,24.16},{46,63.6},{46.2,63.6}}, color={0,0,127}));
   connect(m_flow_set.y, none.m_flow_Set[1])
     annotation (Line(points={{25,46},{38.4,46},{38.4,64}}, color={0,0,127}));
+  connect(pulse.y, heatingSystem.TSet[1]) annotation (Line(points={{21,-68},{46,
+          -68},{68,-68},{68,-12.2}}, color={0,0,127}));
   annotation (Diagram(coordinateSystem(preserveAspectRatio=false, extent={{-100,
             -100},{100,100}})));
 end MiniHouse_example;
