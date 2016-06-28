@@ -18,12 +18,12 @@ model MiniHouse_example "Basemodel for mini passivehouse"
     onOffController)
     annotation (Placement(transformation(extent={{48,-12},{88,8}})));
   IDEAS.Buildings.Components.OuterWall roof(
-    insulationThickness=0.1,
-    redeclare PO3.Data.Constructions.CavityWall constructionType,
     redeclare IDEAS.Buildings.Data.Insulation.Pir insulationType,
+    AWall=0.9,
+    insulationThickness=0.01,
     inc=1.5707963267949,
     azi=1.5707963267949,
-    AWall=0.9)
+    redeclare IDEAS.Buildings.Data.Constructions.CavityWall constructionType)
     annotation (Placement(transformation(extent={{-94,22},{-84,42}})));
   Systems.VentilationSystem none(
     nZones=1,
@@ -33,11 +33,11 @@ model MiniHouse_example "Basemodel for mini passivehouse"
               annotation (Placement(transformation(extent={{30,64},{70,84}})));
   IDEAS.Buildings.Components.OuterWall wall(
     insulationThickness=0.1,
-    redeclare PO3.Data.Constructions.CavityWall constructionType,
     redeclare IDEAS.Buildings.Data.Insulation.Pir insulationType,
+    AWall=2.5,
     inc=1.5707963267949,
     azi=1.5707963267949,
-    AWall=2.5)
+    redeclare IDEAS.Buildings.Data.Constructions.CavityWall constructionType)
     annotation (Placement(transformation(extent={{-94,-10},{-84,10}})));
   IDEAS.Buildings.Components.Window window(
     inc=1.5707963267949,
